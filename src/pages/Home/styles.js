@@ -34,6 +34,15 @@ export const SubmitButton = styled(RectButton)`
   opacity: ${props => (props.loading ? 0.5 : 1)};
 `;
 
+export const ResetButton = styled(RectButton)`
+  justify-content: center;
+  align-items: center;
+  background: #2944cd;
+  border-radius: 4px;
+  margin-left: 10px;
+  padding: 0 12px;
+`;
+
 export const List = styled.FlatList.attrs({
   showsVerticalScrollIndicator: false,
 })`

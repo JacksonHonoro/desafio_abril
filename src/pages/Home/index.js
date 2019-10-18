@@ -62,7 +62,10 @@ export default class Home extends Component {
       this.setState({loading: false});
     }
 
-    const response = await api.get(`/users/${newUser}/repos`);
+    const response = await api
+      .get(`/users/${newUser}/repos`)
+      .then(this.setState({loading: false}))
+      .catch(error => Alert.alert(`${error.name}:  Usuário não encontrado.`));
 
     this.setState({
       repos: response.data,
