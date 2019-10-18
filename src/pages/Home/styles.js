@@ -37,10 +37,17 @@ export const SubmitButton = styled(RectButton)`
 export const ResetButton = styled(RectButton)`
   justify-content: center;
   align-items: center;
-  background: #2944cd;
+  background: #f75959;
   border-radius: 4px;
-  margin-left: 10px;
-  padding: 0 12px;
+  padding: 10px;
+`;
+
+export const TextButton = styled.Text`
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 4px;
+  text-align: center;
 `;
 
 export const List = styled.FlatList.attrs({

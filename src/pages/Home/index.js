@@ -17,6 +17,8 @@ import {
   OwnerLogin,
   Info,
   Data,
+  ResetButton,
+  TextButton,
 } from './styles';
 
 export default class Home extends Component {
@@ -62,10 +64,7 @@ export default class Home extends Component {
       this.setState({loading: false});
     }
 
-    const response = await api
-      .get(`/users/${newUser}/repos`)
-      .then(this.setState({loading: false}))
-      .catch(error => Alert.alert(`${error.name}:  Usuário não encontrado.`));
+    const response = await api.get(`/users/${newUser}/repos`);
 
     this.setState({
       repos: response.data,
@@ -74,6 +73,10 @@ export default class Home extends Component {
     });
 
     Keyboard.dismiss();
+  };
+
+  handleReset = () => {
+    this.setState({repos: ''});
   };
 
   handleNavigateUser = pageHtml => {
@@ -104,6 +107,9 @@ export default class Home extends Component {
             )}
           </SubmitButton>
         </Form>
+        <ResetButton onPress={this.handleReset}>
+          <TextButton>Limpar Lista</TextButton>
+        </ResetButton>
 
         <List
           data={repos}
